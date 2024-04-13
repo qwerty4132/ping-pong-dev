@@ -29,8 +29,8 @@ class Player(GameSprite):
 
 #игровая сцена:
 back = (200, 255, 255) #цвет фона (background)
-win_width = 600
-win_height = 500
+win_width = 1200
+win_height = 800
 window = display.set_mode((win_width, win_height))
 window.fill(back)
 
@@ -40,15 +40,18 @@ finish = False
 clock = time.Clock()
 FPS = 60
 
+racket_width = 50
+racket_height = 150
+
 #создания мяча и ракетки   
-racket1 = Player('redracket.png', 30, 200, 4, 50, 150) 
-racket2 = Player('greenracket.png', 520, 200, 4, 50, 150)
+racket1 = Player('redracket.png', 30, win_height / 2 - racket_height, 4, racket_width, racket_height) 
+racket2 = Player('greenracket.png', win_width - racket_width - 30, win_height / 2 - racket_height, 4, 50, 150)
 ball = GameSprite('tenis_ball.png', 200, 200, 4, 50, 50)
 
 font.init()
 font = font.Font(None, 35)
-lose1 = font.render('PLAYER 1 LOSE!', True, (180, 0, 0))
-lose2 = font.render('PLAYER 2 LOSE!', True, (180, 0, 0))
+lose1 = font.render('PLAYER 1 LOSE!', True, (250, 100, 100))
+lose2 = font.render('PLAYER 2 LOSE!', True, (150, 100, 100))
 
 speed_x = 3
 speed_y = 3
